@@ -1,0 +1,19 @@
+import pygame
+import random
+from os import path
+import time
+
+#Iniciando todos os modulos que serao utilizados
+pygame.init()
+pygame.font.init()
+pygame.mixer.init()
+fnt_dir = path.join(path.dirname(__file__), 'font')
+myfont = pygame.font.SysFont('Comic Sans MS', 30)
+
+#Configurando o caminho onde estao as fotos dos carros
+pic = path.join(path.dirname(__file__), 'Jogo')
+
+#Configurando o tamanho da tela e velocidade de jogo
+displaywidth = 1280
+displayheight = 720
+vel = 80
