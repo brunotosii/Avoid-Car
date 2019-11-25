@@ -90,3 +90,19 @@ background_rect = background.get_rect()
 
 # Renomeando a variavel do carro principal
 player1 = Carro()
+
+# Adicionando o carro principal na tela
+all_sprites = pygame.sprite.Group()
+all_sprites.add(player1)
+
+# Adicionando os carros inimigos na tela
+carros2 = pygame.sprite.Group()
+bateu = False
+if bateu == False:
+    # Randomizando a posicao dos carros inimigos na tela
+    for i in range(5):
+        c = Carro2()
+        all_sprites.add(c)
+        carros2.add(c)
+
+run = True
