@@ -46,3 +46,22 @@ class Carro(pygame.sprite.Sprite):
         self.rect.bottom = displayheight - 10
         self.speedx = 0
         self.radius = int(self.rect.width * .85 / 2)
+ # Funcao que atualiza a posicao do carro
+    def update(self):
+        self.rect.x += self.speedx
+
+        if self.rect.right > displaywidth:
+            self.rect.right = displaywidth
+        if self.rect.left < 0:
+            self.rect.left = 0
+            
+# Criando a classe dos carros inimigos
+class Carro2(pygame.sprite.Sprite):
+    def __init__(self):
+        # Importando todas as imagens dos carros inimigos e criando uma lista que randomiza a aparicao deles
+        pygame.sprite.Sprite.__init__(self)
+        carro2_img = pygame.image.load(path.join(pic, "Caminhonete.png")).convert()
+        carro3_img = pygame.image.load(path.join(pic, "Caminhonete2.png")).convert()
+        carro4_img = pygame.image.load(path.join(pic, "CarroLaranja.png")).convert()
+        carro5_img = pygame.image.load(path.join(pic, "CarroVerde.png")).convert()
+        carro6_img = pygame.image.load(path.join(pic, "CarroAzul.png")).convert()
