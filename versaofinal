@@ -152,3 +152,24 @@ while run:
         background = pygame.transform.scale(background, (displaywidth, displayheight))
         display.blit(background, background_rect)
         background_rect = background.get_rect()
+        textsurface = myfont.render('Voce sobreviveu por {} segundos! Parabens!'.format(seconds), True, WHITE)
+        text_rect = textsurface.get_rect()
+        text_rect.bottomleft = (330, 300)
+        #Atualiza o game display
+        display.blit(textsurface, text_rect)
+        pygame.display.update()
+        pygame.display.flip()
+        time.sleep(5)
+        break
+
+    #Funcao para fazer jogador continuar jogando
+    if bateu == False:
+        all_sprites.update()
+        display.fill(BLACK)
+
+    display.blit(background, background_rect)
+    all_sprites.draw(display)
+    pygame.display.flip()
+
+# Quit Jogo
+pygame.quit()
