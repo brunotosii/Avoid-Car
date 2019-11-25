@@ -130,3 +130,25 @@ while run:
                 player1.speedx = 0
             if event.key == pygame.K_RIGHT:
                 player1.speedx = 0
+# funcao do codigo para identificar que o jogador nao saiu da pista
+    if player1.rect.x < 400:
+        player1.rect.x = 400
+    if player1.rect.x > 800:
+        player1.rect.x = 800
+    # Parte do codigo que sinaliza que o carro bateu e encerra o jogo
+    batida = pygame.sprite.spritecollide(player1, carros2, False, pygame.sprite.collide_circle)
+    # Tela que demonstra o gaameover e o tempo que o jogador sobreviveu
+    if batida:
+        bateu = True
+        player1.kill()
+        carros2.empty()
+        for e in all_sprites:
+            e.kill()
+        all_sprites.clear(display, background)
+        pygame.display.update()
+        display.fill(BLACK)
+        pygame.display.flip()
+        background = pygame.image.load(path.join(pic, "GAMEOVER.png")).convert()
+        background = pygame.transform.scale(background, (displaywidth, displayheight))
+        display.blit(background, background_rect)
+        background_rect = background.get_rect()
