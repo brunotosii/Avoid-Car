@@ -65,3 +65,14 @@ class Carro2(pygame.sprite.Sprite):
         carro4_img = pygame.image.load(path.join(pic, "CarroLaranja.png")).convert()
         carro5_img = pygame.image.load(path.join(pic, "CarroVerde.png")).convert()
         carro6_img = pygame.image.load(path.join(pic, "CarroAzul.png")).convert()
+        listacarrosinimigos = [carro2_img, carro3_img, carro4_img, carro5_img, carro6_img]
+
+        self.image = pygame.transform.scale(random.choice(listacarrosinimigos), (80, 100))
+        self.image.set_colorkey(BLACK)
+        self.rect = self.image.get_rect()
+        self.radius = int(self.rect.width * .85 / 2)
+
+        listacarro2 = [500, 550, 600, 680, 750]
+        self.rect.x = listacarro2[random.randrange(5)]
+        self.rect.y = -40
+        self.speedy = random.randrange(2, 7)
