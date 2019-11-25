@@ -71,8 +71,22 @@ class Carro2(pygame.sprite.Sprite):
         self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
         self.radius = int(self.rect.width * .85 / 2)
-
         listacarro2 = [500, 550, 600, 680, 750]
         self.rect.x = listacarro2[random.randrange(5)]
         self.rect.y = -40
         self.speedy = random.randrange(2, 7)
+[17:32, 25/11/2019] Pinelli: # Atualizando a posicao dos carros
+    def update(self):
+        listacarro2 = [500, 550, 600, 680, 750]
+        self.rect.y += self.speedy
+        if self.rect.top > displayheight + 10 or self.rect.left < -25 or self.rect.right > displaywidth + 20:
+            self.rect.x = listacarro2[random.randrange(5)]
+            self.rect.y = -40
+            self.speedy = random.randrange(2, 7)
+
+# Colocando a imagem de background do jogo
+background = pygame.image.load(path.join(pic, 'back.png')).convert()
+background_rect = background.get_rect()
+
+# Renomeando a variavel do carro principal
+player1 = Carro()
